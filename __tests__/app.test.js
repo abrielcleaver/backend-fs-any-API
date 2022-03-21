@@ -11,4 +11,12 @@ describe('any-api routes', () => {
   afterAll(() => {
     pool.end();
   });
+
+  it('creates a plant', async () => {
+    const expected = {};
+
+    const res = await request(app).post('/api/v1/houseplants').send(expected);
+    
+    expect(res.body).toEqual(expected);
+  });
 });
